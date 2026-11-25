@@ -1,6 +1,9 @@
 # Speech recognition on AMI meeting recordings
 
-I compared Whisper Turbo, Whisper large-v3, and FUTO on the same 500 AMI-Cleaned clips. Read the [PDF report](report.pdf) for methods, findings, and limitations. Download and open the [interactive HTML report](report.html) to explore the figures.
+I compared Whisper Turbo, Whisper large-v3, and FUTO on the same 500 AMI-Cleaned clips.
+
+- **Main report:** [Three-page PDF](report.pdf) · [HTML](report.html).
+- **Full report (optional):** [PDF](report_full.pdf) · [Interactive HTML](report_full.html).
 
 ## Reproduce the full experiment from audio
 

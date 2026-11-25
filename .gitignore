@@ -23,3 +23,7 @@ results_old/
 # Notebook and macOS files
 .ipynb_checkpoints/
 .DS_Store
+
+# Local research log and exercise brief
+/decision-log.md
+/Data Scientist_ Take-Home Exercise.pdf

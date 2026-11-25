@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metric disagreement report</title>
+<style>
+body{font:16px/1.55 system-ui;color:#182f3e;max-width:1050px;margin:36px auto;padding:0 24px}
+h1,h2{line-height:1.25}h2{margin-top:30px}a{color:#1b6395}code{overflow-wrap:anywhere}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px;margin:16px 0}
+th,td{border-bottom:1px solid #d6e1e7;padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#edf3f7}td{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.note{color:#52646f;font-size:14px}.callout{background:#f1f6fa;border-left:3px solid #2166a5;padding:12px 16px}
+details{border:1px solid #d6e1e7;border-radius:6px;margin:14px 0}summary{cursor:pointer;font-weight:600;padding:12px}
+.detail-body{padding:0 16px 12px}.clip{font:12px/1.5 monospace;overflow-wrap:anywhere}
+@media print{body{font-size:10pt;margin:0}details{break-inside:avoid}.table-wrap{overflow:visible}table{font-size:9pt}}
+</style></head><body><h1>Metric disagreement report</h1>
+<p class='note'>Scores recorded 2026-11-25T13:04:42.624710+00:00 · Normalization: level0</p>
+<p>WER and CER pool edits over reference words and characters. Semantic distance averages 1 − cosine similarity across clips. Lower is better; semantic distance is not a percentage or a calibrated measure of correctness. This report reuses the evaluation's scores.</p>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>Checkpoint</th><th scope='col'>Prediction file</th></tr></thead><tbody><tr><td>M1</td><td>openai/whisper-large-v3-turbo</td><td>turbo.json</td></tr><tr><td>M2</td><td>openai/whisper-large-v3</td><td>large-v3.json</td></tr><tr><td>M3</td><td>futo-org/asr4all-l</td><td>futo.json</td></tr></tbody></table></div>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>WER</th><th scope='col'>CER</th><th scope='col'>Semantic distance</th></tr></thead><tbody><tr><td>M1</td><td>13.67%</td><td>9.51%</td><td>0.131</td></tr><tr><td>M2</td><td>14.12%</td><td>9.89%</td><td>0.136</td></tr><tr><td>M3</td><td>9.87%</td><td>6.00%</td><td>0.117</td></tr></tbody></table></div>
+<p class='note'>Clips per model: 500. These are supplied-data scores. This page makes no population extrapolation or significance claim.</p>
+<h2>Where the metrics prefer different models</h2>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Pair</th><th scope='col'>Total clips</th><th scope='col'>Comparable</th><th scope='col'>Reversals</th></tr></thead><tbody><tr><td>M1 / M2</td><td>500</td><td>125</td><td>16</td></tr><tr><td>M1 / M3</td><td>500</td><td>247</td><td>42</td></tr><tr><td>M2 / M3</td><td>500</td><td>240</td><td>38</td></tr></tbody></table></div>
+<p>Comparable pairs have defined WER and no ties on either metric. A reversal means the metrics prefer different predictions for the same clip. Pairs share clips and models; they are not independent trials. The JSON retains all tie and exclusion counts.</p>
+<h2>Examples to review</h2><p>Strict paired WER/semantic preference reversals, largest semantic gap first; one example per clip. Examples are selected after scoring; they do not establish which metric is right.</p>
+<details open><summary>Example 1 · opposite model preferences</summary><div class='detail-body'>
+<p class='clip'>AMI_EN2002c_H02_MEE071_0276454_0276627</p><p><strong>Reference:</strong> Which is the highest, exactly.</p>
+<p><strong>M1:</strong>  Which is nice, exactly.</p>
+<p><strong>M2:</strong>  Which is the highest, isn&#x27;t it?</p>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>WER</th><th scope='col'>CER</th><th scope='col'>Semantic distance</th></tr></thead><tbody><tr><td>M1</td><td>40.00%</td><td>32.14%</td><td>0.700</td></tr><tr><td>M2</td><td>60.00%</td><td>28.57%</td><td>0.052</td></tr></tbody></table></div>
+<p>WER prefers M1; semantic distance prefers M2.</p>
+<p class='note'>Check what information changed and whether it matters for the intended use. Listen before attributing a mismatch to the model or reference.</p></div></details>
+<details><summary>Example 2 · opposite model preferences</summary><div class='detail-body'>
+<p class='clip'>AMI_EN2002c_H01_FEO072_0016668_0016786</p><p><strong>Reference:</strong> What what what wh wh</p>
+<p><strong>M1:</strong>  What?</p>
+<p><strong>M3:</strong> W w w</p>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>WER</th><th scope='col'>CER</th><th scope='col'>Semantic distance</th></tr></thead><tbody><tr><td>M1</td><td>80.00%</td><td>80.00%</td><td>0.953</td></tr><tr><td>M3</td><td>100.00%</td><td>85.00%</td><td>0.346</td></tr></tbody></table></div>
+<p>WER prefers M1; semantic distance prefers M3.</p>
+<p class='note'>Check what information changed and whether it matters for the intended use. Listen before attributing a mismatch to the model or reference.</p></div></details>
+<details><summary>Example 3 · opposite model preferences</summary><div class='detail-body'>
+<p class='clip'>AMI_EN2002c_H02_MEE071_0039137_0039381</p><p><strong>Reference:</strong> That was bizarre thing.</p>
+<p><strong>M1:</strong>  That was some bizarre things. You think,</p>
+<p><strong>M3:</strong> No was also bizartic.</p>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>WER</th><th scope='col'>CER</th><th scope='col'>Semantic distance</th></tr></thead><tbody><tr><td>M1</td><td>100.00%</td><td>72.73%</td><td>0.286</td></tr><tr><td>M3</td><td>75.00%</td><td>63.64%</td><td>0.772</td></tr></tbody></table></div>
+<p>WER prefers M3; semantic distance prefers M1.</p>
+<p class='note'>Check what information changed and whether it matters for the intended use. Listen before attributing a mismatch to the model or reference.</p></div></details>
+<details><summary>Example 4 · opposite model preferences</summary><div class='detail-body'>
+<p class='clip'>AMI_ES2004a_H00_MEO015_0057676_0057871</p><p><strong>Reference:</strong> One point four or something like that.</p>
+<p><strong>M1:</strong>  1.4 something like that</p>
+<p><strong>M2:</strong>  one point</p>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>WER</th><th scope='col'>CER</th><th scope='col'>Semantic distance</th></tr></thead><tbody><tr><td>M1</td><td>20.00%</td><td>10.71%</td><td>0.566</td></tr><tr><td>M2</td><td>100.00%</td><td>71.43%</td><td>0.321</td></tr></tbody></table></div>
+<p>WER prefers M1; semantic distance prefers M2.</p>
+<p class='note'>Check what information changed and whether it matters for the intended use. Listen before attributing a mismatch to the model or reference.</p></div></details>
+<details><summary>Example 5 · opposite model preferences</summary><div class='detail-body'>
+<p class='clip'>AMI_EN2002d_H03_MEE073_0160781_0160938</p><p><strong>Reference:</strong> Um there are a f a few little things.</p>
+<p><strong>M2:</strong>  There were a few little things</p>
+<p><strong>M3:</strong> Um through f a few little things.</p>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>WER</th><th scope='col'>CER</th><th scope='col'>Semantic distance</th></tr></thead><tbody><tr><td>M2</td><td>33.33%</td><td>12.90%</td><td>0.406</td></tr><tr><td>M3</td><td>50.00%</td><td>25.81%</td><td>0.177</td></tr></tbody></table></div>
+<p>WER prefers M2; semantic distance prefers M3.</p>
+<p class='note'>Check what information changed and whether it matters for the intended use. Listen before attributing a mismatch to the model or reference.</p></div></details>
+<h2>Method and limits</h2><p>The English text encoder uses lightly cleaned original text, independently of WER/CER normalization. CER includes single spaces. Identical semantic inputs score 0; exactly one empty input scores 1 by convention. Empty normalized references have undefined per-clip WER/CER; their insertions still contribute to corpus totals.</p>
+<p class='callout'>Numbers, names, and negation can be wrong despite a small semantic distance. These text comparisons contain no independent audio judgment or human meaning labels. Use the examples to direct review, not to certify correctness.</p>
+<details><summary>Settings and source provenance</summary><div class='detail-body'>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Setting</th><th scope='col'>Value</th></tr></thead><tbody><tr><td>created_utc</td><td>2026-11-25T13:04:42.624710+00:00</td></tr><tr><td>normalization</td><td>level0</td></tr><tr><td>normalization_revision</td><td>cumulative-v1</td></tr><tr><td>normalizer_revision</td><td>c4696193a333f7948cb113dc93bb54f661bd9a0b</td></tr><tr><td>merge_compounds</td><td>True</td></tr><tr><td>cer_includes_spaces</td><td>True</td></tr><tr><td>method</td><td>1 - cosine similarity (SemDist-style, MiniLM encoder)</td></tr><tr><td>encoder</td><td>sentence-transformers/all-MiniLM-L6-v2</td></tr><tr><td>revision</td><td>1110a243fdf4706b3f48f1d95db1a4f5529b4d41</td></tr><tr><td>pooling</td><td>attention-mask mean, then L2 normalization</td></tr><tr><td>preprocessing</td><td>remove non-speech annotations; collapse whitespace</td></tr><tr><td>independent_of_normalization_level</td><td>True</td></tr><tr><td>max_tokens</td><td>256</td></tr><tr><td>truncation</td><td>False</td></tr><tr><td>both_empty_distance</td><td>0.0</td></tr><tr><td>one_empty_distance</td><td>1.0</td></tr><tr><td>device</td><td>cpu</td></tr><tr><td>dtype</td><td>float32</td></tr><tr><td>batch_size</td><td>32</td></tr><tr><td>torch_version</td><td>2.8.0+cu126</td></tr><tr><td>transformers_version</td><td>4.57.3</td></tr><tr><td>selection_rule</td><td>Strict paired WER/semantic preference reversals, largest semantic gap first; one example per clip.</td></tr><tr><td>max_examples</td><td>5</td></tr><tr><td>paired_semantic_tie_tolerance</td><td>1e-06</td></tr><tr><td>single_model_semantic_rank_decimals</td><td>6</td></tr></tbody></table></div>
+<div class='table-wrap'><table><thead><tr><th scope='col'>Model</th><th scope='col'>Input SHA-256</th></tr></thead><tbody><tr><td>M1</td><td>57585b533fcf2189ab98b6f742b45a29159b86aa376a3af305871700f509660d</td></tr><tr><td>M2</td><td>bae344988524f1a11c5c024f273429689abc9c0c163e6ebd42d43be3b4ca8bf7</td></tr><tr><td>M3</td><td>bc0a009af575d1f9e6b788ccedf12079e1dc3fa5b5a9dc04228165be66cb05aa</td></tr></tbody></table></div>
+</div></details><p class='note'><a href='https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2'>MiniLM model documentation</a> · <a href='https://www.isca-archive.org/interspeech_2021/kim21e_interspeech.html'>SemDist paper</a> · <a href='transcript_analysis.metrics.json'>Full metrics and examples JSON</a></p></body></html>

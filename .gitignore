@@ -1,0 +1,25 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Downloaded caches and model weights
+.cache/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Local runs and old results; keep results/ as submitted evidence.
+runs/
+results_old/
+*.log
+
+# Notebook and macOS files
+.ipynb_checkpoints/
+.DS_Store

@@ -1,0 +1,105 @@
+{
+  "dataset_revision": "de79e57adf9983993bcc72586d7313460825f5eb",
+  "instructions": "Listen using the HTML report. Set reference_matches_audio to true/false; null means pending. Optionally fill corrected_reference and notes. Keep id and reference unchanged, then rerun the same command.",
+  "selection": "Deterministic extremes of duration, density and normalization sensitivity, without model scores; not a random audit.",
+  "clips": [
+    {
+      "id": "AMI_ES2004b_H00_MEO015_0081928_0082028",
+      "reference": "Yeah this is more than enough.",
+      "reason": "short duration",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_EN2002d_H01_FEO072_0044186_0045922",
+      "reference": "Yeah, I started I started using your um um the speak I don't know if you've seen that in the yeah.",
+      "reason": "long duration",
+      "reference_matches_audio": false,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference omits \"tried a few times\" at the beginning."
+    },
+    {
+      "id": "AMI_EN2002d_H03_MEE073_0069749_0070202",
+      "reference": "Yeah.",
+      "reason": "low word density",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_ES2004d_H03_FEE016_0071496_0071665",
+      "reference": "So, I'll work out the average for that again at the end.",
+      "reason": "high word density",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_EN2002d_H03_MEE073_0160781_0160938",
+      "reference": "Um there are a f a few little things.",
+      "reason": "normalization-sensitive density",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_ES2004d_H01_FEE013_0034235_0034335",
+      "reference": "Yeah, that would make sense.",
+      "reason": "short duration",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_ES2004b_H01_FEE013_0167575_0169104",
+      "reference": "six digit number afterwards and that's the number you put in and it's recorded that it's going to be on on Tuesdays at ten o'clock on the seventeenth so you don't have to worry about dates and you don't have to worry about times",
+      "reason": "long duration",
+      "reference_matches_audio": false,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference omits \"things like that\" between \"seventeenth\" and \"so you\"."
+    },
+    {
+      "id": "AMI_EN2002d_H01_FEO072_0097278_0097652",
+      "reference": "No uh",
+      "reason": "low word density",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_EN2002a_H02_FEO072_0091452_0091735",
+      "reference": "I don't know if it's readable at the moment, but you can sure have a d have a look.",
+      "reason": "high word density",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_ES2004b_H01_FEE013_0019400_0019512",
+      "reference": "Um, F. N.",
+      "reason": "normalization-sensitive density",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_TS3003d_H02_MTD0010ID_0214261_0214361",
+      "reference": "digit Yes.",
+      "reason": "short duration",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    },
+    {
+      "id": "AMI_IS1009b_H03_FIO089_0015069_0016531",
+      "reference": "it should heat up your motor if should um turn on your C. D. whatever you want it to do um and then as we go on what we'll have to do is accept and eliminate these suggestions according to um design and budget feasibility.",
+      "reason": "long duration",
+      "reference_matches_audio": true,
+      "corrected_reference": null,
+      "notes": "User-reported listening feedback (2026-11-25): the reference matches the audio."
+    }
+  ],
+  "review_updated_date": "2026-11-25",
+  "review_source": "Human listening feedback reported by Bashir; Codex recorded the results without listening."
+}
